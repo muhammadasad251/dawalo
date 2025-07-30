@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dawalo.pk - Upload your prescription and get medicine delivered to your doorstep in Pakistan. Fast, verified, and licensed service." />
+  <meta property="og:title" content="Dawalo.pk - Medicine Delivery at Your Doorstep" />
+  <meta property="og:description" content="Upload your prescription and get medicines delivered fast across Pakistan." />
+  <meta property="og:image" content="https://dawalo.pk/images/og-image.jpg" />
+  <meta property="og:url" content="https://dawalo.pk" />
+  <meta name="theme-color" content="#10B981" />
+
+  <title>Dawalo.pk - Dawa Ap Ke Darwazay Par</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts (Poppins for modern look) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for better icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn-primary {
+      @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105;
+    }
+    .card-hover {
+      @apply bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300;
+    }
+    .whatsapp-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header Placeholder -->
+  <div id="header-placeholder">
+    <!-- Fallback Header (shown if fetch fails) -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50 transition duration-300">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <div class="bg-green-600 rounded-full p-2">
+            <i class="fas fa-pills text-white text-xl"></i>
+          </div>
+          <span class="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">Dawalo.pk</span>
+        </div>
+        <nav class="md:flex space-x-8 hidden">
+          <a href="#home" class="text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+          <a href="#how-it-works" class="text-gray-700 hover:text-green-600 font-medium transition">How It Works</a>
+          <a href="#faq" class="text-gray-700 hover:text-green-600 font-medium transition">FAQ</a>
+          <a href="#contact" class="text-gray-700 hover:text-green-600 font-medium transition">Contact</a>
+          <a href="#signin" class="text-green-600 font-semibold hover:underline">Sign In</a>
+        </nav>
+        <button class="md:hidden text-gray-700">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative pt-28 pb-20 px-6 bg-gradient-to-br from-emerald-50 via-white to-green-50">
+    <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center gap-10">
+      <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+          <span class="bg-gradient-to-r from-green-600 to-teal-500 bg-clip-text text-transparent">Dawa Ap Ke Darwazay Par</span>
+        </h1>
+        <p class="text-lg text-gray-700 mb-8">Upload your prescription and get genuine medicines delivered to your doorstep — quickly, safely, and discreetly.</p>
+        <a href="#upload" class="btn-primary inline-flex items-center gap-2">
+          <i class="fas fa-upload"></i> Upload Prescription
+        </a>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <img src="https://img.freepik.com/free-vector/happy-doctor-with-medical-mask-with-stethoscope-cartoon-vector-illustration_74855-6391.jpg" alt="Doctor & Medicine Delivery" class="rounded-xl shadow-xl max-w-full h-auto fade-in" style="max-height: 400px; object-fit: cover;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Section -->
+  <section id="upload" class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center mb-12 fade-in">
+      <h2 class="text-3xl font-bold text-gray-900">Get Your Medicine in 3 Simple Steps</h2>
+      <p class="mt-4 text-gray-600">We make it easy to receive your prescribed medicines without leaving home.</p>
+    </div>
+    <form class="max-w-xl mx-auto bg-gradient-to-br from-gray-50 to-green-50 p-8 rounded-2xl shadow-lg border border-gray-100 fade-in" onsubmit="event.preventDefault(); findPharmacy();">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block text-left text-gray-700 font-medium mb-2">Full Name</label>
+          <input type="text" id="name" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-3 focus:ring-green-200" placeholder="Ali Khan" />
+        </div>
+        <div>
+          <label class="block text-left text-gray-700 font-medium mb-2">Phone Number</label>
+          <input type="tel" id="phone" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-3 focus:ring-green-200" placeholder="0300 1234567" />
+        </div>
+      </div>
+      <div class="mb-6">
+        <label class="block text-left text-gray-700 font-medium mb-2">City</label>
+        <input type="text" id="city" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-3 focus:ring-green-200" placeholder="e.g. Lahore, Islamabad, Karachi" />
+      </div>
+      <div class="mb-6">
+        <label class="block text-left text-gray-700 font-medium mb-2">Upload Prescription</label>
+        <div class="border-2 border-dashed border-green-300 rounded-lg p-6 text-center hover:border-green-500 transition">
+          <i class="fas fa-cloud-upload-alt text-4xl text-green-400 mb-2"></i>
+          <p class="text-gray-600 text-sm">Drag & drop or click to upload image/PDF</p>
+          <input type="file" id="prescription" accept="image/*,application/pdf" required class="opacity-0 absolute inset-0 cursor-pointer" />
+        </div>
+      </div>
+      <button type="submit" class="w-full btn-primary text-lg font-medium flex items-center justify-center gap-2">
+        <i class="fas fa-search"></i> Find My Pharmacy
+      </button>
+    </form>
+  </section>
+
+  <!-- Tracking Section -->
+  <section class="py-16 px-6 bg-gradient-to-r from-green-50 to-emerald-50">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Track Your Order in Real-Time</h2>
+      <p class="text-gray-600 mb-8">Know exactly when your medicine will arrive.</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input type="text" id="trackingId" placeholder="Enter Tracking ID" class="flex-grow border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        <button onclick="trackOrder()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition hover:scale-105 whitespace-nowrap">
+          Track My Order
+        </button>
+      </div>
+      <div id="trackingResult" class="mt-6 text-lg font-medium text-teal-600"></div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">How Dawalo Works</h2>
+      <p class="text-xl text-gray-600 mb-16">Fast, simple, and secure medicine delivery.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="card-hover fade-in">
+          <div class="bg-blue-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5">
+            <i class="fas fa-file-prescription text-2xl text-blue-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">1. Upload Prescription</h3>
+          <p class="text-gray-600">Snap a photo or upload your doctor’s prescription securely.</p>
+        </div>
+        <div class="card-hover fade-in">
+          <div class="bg-green-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5">
+            <i class="fas fa-map-marker-alt text-2xl text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">2. Nearest Pharmacy Matched</h3>
+          <p class="text-gray-600">We instantly connect you with a verified pharmacy near you.</p>
+        </div>
+        <div class="card-hover fade-in">
+          <div class="bg-teal-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5">
+            <i class="fas fa-shipping-fast text-2xl text-teal-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">3. Delivered to Your Door</h3>
+          <p class="text-gray-600">Your medicines are packed and delivered quickly and safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Dawalo -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Pakistan Trusts Dawalo</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+        <div class="card-hover text-center">
+          <i class="fas fa-store-alt text-4xl text-green-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Trusted Pharmacies</h3>
+          <p class="text-gray-600">Only licensed and registered pharmacies are allowed.</p>
+        </div>
+        <div class="card-hover text-center">
+          <i class="fas fa-bolt text-4xl text-orange-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
+          <p class="text-gray-600">Most orders delivered within 30–60 minutes.</p>
+        </div>
+        <div class="card-hover text-center">
+          <i class="fas fa-tags text-4xl text-blue-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Affordable Prices</h3>
+          <p class="text-gray-600">No hidden charges. Same as in-store pricing.</p>
+        </div>
+        <div class="card-hover text-center">
+          <i class="fas fa-shield-alt text-4xl text-teal-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">100% Verified</h3>
+          <p class="text-gray-600">We follow Pakistan’s healthcare compliance standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/923001234567" target="_blank" class="fixed bottom-8 right-8 z-50 whatsapp-float">
+    <div class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-transform duration-300 flex items-center justify-center animate-pulse">
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </div>
+  </a>
+
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder">
+    <!-- Fallback Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 px-6 mt-16">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+            <i class="fas fa-pills mr-2"></i> Dawalo.pk
+          </h3>
+          <p class="text-gray-400">Your trusted partner for prescription medicine delivery across Pakistan. Fast, secure, and verified.</p>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-5">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#faq" class="hover:text-green-400 transition">FAQ</a></li>
+            <li><a href="#privacy" class="hover:text-green-400 transition">Privacy Policy</a></li>
+            <li><a href="#terms" class="hover:text-green-400 transition">Terms of Service</a></li>
+            <li><a href="#contact" class="hover:text-green-400 transition">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-white mb-5">Connect With Us</h3>
+          <p class="text-gray-400 mb-2">📞 +92 300 1234567</p>
+          <p class="text-gray-400 mb-4">📧 support@dawalo.pk</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-green-400 text-xl"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-green-400 text-xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/923001234567" target="_blank" class="text-gray-400 hover:text-green-400 text-xl"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 mt-10 text-sm">
+        &copy; 2025 Dawalo.pk. All rights reserved. Empowering healthcare, one delivery at a time. 💚
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Load Header and Footer with fallback
+    async function loadComponent(url, elementId) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          document.getElementById(elementId).innerHTML = await res.text();
+        } else {
+          console.warn(`Failed to load ${url}: ${res.status}`);
+        }
+      } catch (err) {
+        console.error(`Error loading ${url}:`, err);
+        // Keep fallback content
+      }
+    }
+
+    // Run on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      loadComponent('components/header.html', 'header-placeholder');
+      loadComponent('components/footer.html', 'footer-placeholder');
+
+      // Fade-in scroll animation
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -100px 0px" };
+      const appearOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        });
+      }, appearOptions);
+
+      faders.forEach(el => appearOnScroll.observe(el));
+    });
+
+    // Mock Functions
+    function findPharmacy() {
+      const name = document.getElementById("name").value;
+      alert(`Thank you, ${name}! Your prescription has been uploaded. We're finding the nearest pharmacy for you.`);
+    }
+
+    function trackOrder() {
+      const id = document.getElementById("trackingId").value.trim();
+      const resultEl = document.getElementById("trackingResult");
+      if (id) {
+        resultEl.className = "mt-6 text-lg font-medium text-teal-600";
+        resultEl.textContent = "✅ Pharmacy matched – Delivery in 25 mins!";
+      } else {
+        resultEl.className = "mt-6 text-lg font-medium text-red-600";
+        resultEl.textContent = "⚠️ Please enter a valid Tracking ID.";
+      }
+    }
+  </script>
+</body>
+</html>
